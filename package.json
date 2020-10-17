@@ -4,7 +4,9 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -16,7 +18,41 @@
   ],
   "author": "GitHub",
   "license": "CC0-1.0",
+  "build": {
+    "appId": "io.repro.desktop",
+    "productName": "Test Desktop",
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage",
+        "snap",
+        "pacman",
+        "apk",
+        "freebsd",
+        "rpm",
+        "zip",
+        "tar.gz"
+      ],
+      "category": "Productivity"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable",
+        "msi",
+        "zip"
+      ]
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    }
+  },
   "devDependencies": {
-    "electron": "^10.1.3"
+    "electron": "^10.1.3",
+    "electron-builder": "^22.9.1"
   }
 }
